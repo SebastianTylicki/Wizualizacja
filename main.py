@@ -397,4 +397,61 @@ zad4()
 def zad5():
     x = math.pow(math.pow(math.e, 3) + math.pow(math.cos(39), 2) + pow((2/7), 3) + math.pi,(1/5))
     print(round(x, 2))
-za
+
+    import math as m
+
+def zad1():
+    x = m.pow((m.log(32, 2) + m.pi + m.sin(56)), (1/4))
+    print(round(x, 2))
+
+def zad2():
+    lista = [10, 4, 2.5, 1.7, 8.1, 4.5, 1, 99, -1, -5.3]
+    listaz = [i for i in lista if isinstance(i, int)]
+    print(lista)
+    print(listaz)
+
+def zad3(slownik):
+    lista = []
+    x = 0
+    for key in slownik:
+        if isinstance(key, int):
+            if isinstance(slownik[key], int):
+                x = key + slownik[key]
+                lista.append(x)
+    print(lista)
+
+def zad4():
+    plik = open('tekst.txt', 'r+', encoding='utf-8')
+    plik.seek(35)
+    znaki = plik.read(27)
+    x = 0
+    for i in znaki:
+        if i == " ":
+            x = x + 1
+    print(znaki)
+    print(x)
+    plik.close()
+
+def zad5():
+    a1 = input('Wstaw a1: ')
+    n = input('Wstaw n: ')
+    r = input('Wstaw r: ')
+    try:
+        a1 = int(a1)
+        n = int(n)
+        r = int(r)
+        an = a1 + (n-1)*r
+        print("N-ty wyraz ciągu wynosi: ", an)
+        plik = open('zad5', 'w+')
+        plik.write(str(an))
+        plik.close()
+    except ValueError:
+        print("Wartości muszą być całowite")
+
+slownik = {1 : 3, 4 : 1.5, 3.2 : 2, 1.2 : 9.9, 8 : 11}
+
+zad1()
+zad2()
+zad3(slownik)
+zad4()
+zad5()

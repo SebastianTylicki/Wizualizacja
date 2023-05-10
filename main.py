@@ -558,3 +558,79 @@ cols = np.array([[0, 2], [0, 2]])
 y = x[rows, cols]
 print(y)
 
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import random
+
+# a = np.arange(0, 5, 0.2)
+
+# plt.plot(a, a, 'r--', a, a**2, 'bs', a, a**3, 'g^')
+# plt.legend(labels = ['liniowa','kwadratowa','sześcienna'], loc='center left')
+# plt.show()
+
+# plt.plot(a, a, 'r--', label='liniowa')
+# plt.plot(a, a**2, 'bs', label='kwadratowa')
+# plt.plot(a, a**3, 'g^', label='sześcienna')
+# plt.ylabel('etykieta y')
+# plt.xlabel('etykieta x')
+# plt.title('tytuł')
+# plt.legend()
+# plt.savefig('wykres1.png')
+# plt.show()
+# x = np.arange(0, 10.1, 0.1)
+# y = np.sin(x)
+# plt.plot(x, y, 'b-')
+# plt.xlabel('x')
+# plt.ylabel('y')
+# plt.title('t')
+# plt.show()
+
+# data = {'a': np.arange(50), 'c': np.random.randint(0, 50, 50),'d': np.random.randn(50)}
+# data['b'] = data['a']+10*np.random.randn(50)
+# data['d']= np.abs(data['d'])*100
+# plt.scatter('a','b',c='c',s='d', data=data, cmap='magma')
+# plt.xlabel('wartosci a')
+# plt.ylabel('wartosci b')
+# plt.show()
+#
+# x1 = np.arange(0, 2, 0.02)
+# x2 = np.arange(0, 2, 0.02)
+#
+# y1 = np.sin(2*np.pi * x1)
+# y2 = np.cos(2*np.pi * x2)
+# plt.subplot(4,1,1)
+# plt.plot(x1, y1)
+# plt.xlabel('x')
+# plt.ylabel('sin(x)')
+# plt.title('Sin(x)')
+#
+# plt.subplot(4,1,4)
+# plt.plot(x2, y2, 'r')
+# plt.xlabel('x')
+# plt.ylabel('cos(x)')
+# plt.title('Cos(x)')
+# plt.subplots_adjust(hspace=0.5)
+# plt.show()
+
+# fig, axs = plt.subplots(3, 2)
+# axs[0, 0].plot(x1, x2, 'g-')
+# axs[0, 0].set_xlable('x')
+# axs[0, 0].set_ylable('sin(x)')
+# axs[0, 0].set_title('Wykres sin(x)')
+# plt.show()
+
+data = {'Kraj': ['Belgia','Indie','Brazylia','Polska'],
+        'Stolica': ['Bruksela', 'New Delhi', 'Brasilia','Warszawa'],
+        'Kontynent': ['Europa','Azja', 'Ameryka Południowa','Europa'],
+        'Populacja': [11190846, 1303171035, 207847528, 38675467]}
+df = pd.DataFrame(data)
+print(df)
+grupa = df.groupby('Kontynent')
+etykiety = list(grupa.groups.keys())
+wartosc = list(grupa.agg('Populacja').sum())
+plt.bar(etykiety, wartosc, color=['yellow','green','red'])
+plt.xlabel('Kontynent')
+plt.ylabel('Populacja w mld')
+plt.show()
+
